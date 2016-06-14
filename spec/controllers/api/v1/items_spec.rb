@@ -39,9 +39,9 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
     expected_keys = ["name", "description", "image_url"]
 
     expect(response.status).to eq(200)
-    require "pry"; binding.pry
-    expect(json["item"].keys).to eq(expected_keys)
-
+    expect(json["name"]).to eq("Item1")
+    expect(json["name"]).to_not eq("Item2")
+    expect(json.keys).to eq(expected_keys)
   end
 
 
