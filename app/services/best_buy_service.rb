@@ -5,9 +5,9 @@ class BestBuyService
     @_connection = Faraday.new("http://api.bestbuy.com/v1/")
   end
 
-  def stores_search(zip,range)
+  def stores_search(zip, range)
     response = connection.get do |req|
-      req.url "stores(area(#{"zip",range}))?"
+      req.url "stores(area(#{zip},#{range}))"
       req.params["format"] = "json"
       req.params["apiKey"] = "#{api_key}"
     end
