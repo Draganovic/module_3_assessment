@@ -10,4 +10,8 @@ class Api::V1::ItemsController < ApplicationController
     respond_with Item.find(params[:id])
   end
 
+  def destroy
+    respond_with Item.find(params[:id]).destroy
+  end
+
 end

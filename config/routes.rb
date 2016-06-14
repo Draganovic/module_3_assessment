@@ -9,6 +9,7 @@ Rails.application.routes.draw do
    namespace :v1, defaults: { format: :json } do
      get "/items", to: "items#index"
      get "/items/:id",    to: "items#show"
+     delete "/items/:id", to: "items#destroy"
    end
  end
 
