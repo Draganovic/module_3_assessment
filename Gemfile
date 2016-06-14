@@ -14,6 +14,8 @@ gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem "figaro"
 gem "faraday"
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'responders'
 
 group :development do
   gem "spring"
@@ -23,6 +25,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :test do
