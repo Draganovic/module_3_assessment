@@ -65,4 +65,16 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
     expect(Item.all.count).to eq(1)
   end
 
+  it "creates an item" do
+    expect(Item.all.count).to eq(0)
+
+    post :create, name: "Created Item", description: "The item that was created", image_url: "item image", format: :json
+    json = JSON.parse(response.body)
+    expected_keys = ["name", "description", "image_url"]
+
+    expect(response.status).to eq(201)
+    expect(Item.all.count).to eq(1)
+    expect(Item.first.name).to eq("Created Item")
+  end
+
 end
