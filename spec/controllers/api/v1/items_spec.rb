@@ -32,14 +32,16 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       description: "Description2",
       image_url: "Image2"
     )
-    get :index, id: item1.id, format: :json
+
+    get :show, id: item1.id, format: :json
 
     json = JSON.parse(response.body)
     expected_keys = ["name", "description", "image_url"]
 
     expect(response.status).to eq(200)
     require "pry"; binding.pry
-  
+    expect(json["item"].keys).to eq(expected_keys)
+
   end
 
 
